@@ -13,9 +13,9 @@ import java.util.stream.Collector;
 public class PartitionsAllCollector<T>
         implements Collector<T, PartitionsAllAccumulator<T>, List<List<T>>> {
 
-    private final long size;
+    private final int size;
 
-    public PartitionsAllCollector(long size) {
+    public PartitionsAllCollector(int size) {
         this.size = size;
     }
 

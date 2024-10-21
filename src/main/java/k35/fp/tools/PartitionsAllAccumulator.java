@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class PartitionsAllAccumulator<T> {
-    private final long size;
+    private final int size;
 
     private final List<List<T>> accumulator = new ArrayList<>();
     private List<T> part;
 
-    PartitionsAllAccumulator(long size) {
+    PartitionsAllAccumulator(int size) {
         this.size = size;
     }
 
-    public void add(T item) {
-        if (part == null || size <= part.size()) {
-            this.part = new ArrayList<>();
+    public synchronized void add(T item) {
+        if (part == null || size == part.size()) {
+            this.part = new ArrayList<>(this.size);
             this.accumulator.add(part);
         }
 

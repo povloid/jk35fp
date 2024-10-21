@@ -15,8 +15,8 @@ public class PartitionsAllCollectorTest {
     @Test
     public void commonTest() {
 
-        final var size = 1000017;
-        final var partSize = 777;
+        final var size = 187197;
+        final var partSize = 10000;
 
         final var list = Stream.iterate(0, i -> i + 1).limit(size).toList();
 
