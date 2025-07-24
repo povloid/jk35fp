@@ -5,6 +5,15 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+/**
+ * Result contatiner
+ *
+ * @param value
+ * @param throwable
+ * @param isSuccess
+ * @param <V>
+ * @param <E>
+ */
 public record Result<V, E extends Throwable>(
         V value,
         E throwable,
@@ -29,7 +38,7 @@ public record Result<V, E extends Throwable>(
     }
 
     public <R> R map(Function<V, R> successFn,
-            Function<E, R> failureFn) {
+                     Function<E, R> failureFn) {
         return this.isSuccess ? successFn.apply(this.value)
                 : failureFn.apply(this.throwable);
     }
@@ -47,7 +56,7 @@ public record Result<V, E extends Throwable>(
     }
 
     public void handle(Consumer<? super V> successAction,
-            Consumer<? super E> failureAction) {
+                       Consumer<? super E> failureAction) {
         if (this.isSuccess) {
             successAction.accept(this.value);
         } else {

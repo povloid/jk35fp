@@ -2,6 +2,11 @@ package k35.fp;
 
 import java.util.function.Function;
 
+/**
+ * Functional pipe line.
+ *
+ * @param <A>
+ */
 public final class Pipe<A> {
 
     private final A value;

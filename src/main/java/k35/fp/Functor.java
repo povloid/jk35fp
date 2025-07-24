@@ -1,11 +1,10 @@
 package k35.fp;
 
-import k35.fp.tools.FP;
 
 import java.util.function.Function;
 
 /**
- * Апликативный функтор
+ * Applicative funtor
  *
  * @param <A>
  * @param <B>
@@ -23,6 +22,6 @@ public final class Functor<A, B> {
     }
 
     public <C> Functor<A, C> map(Function<B, C> transform) {
-        return new Functor<A, C>(FP.compose2(this.transform, transform));
+        return new Functor<A, C>(Fp.compose2(this.transform, transform));
     }
 }
